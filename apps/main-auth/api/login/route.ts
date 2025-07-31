@@ -6,6 +6,8 @@ import db from '@db/client';
 import bcrypt from 'bcrypt';
 import type { RowDataPacket } from 'mysql2';
 
+export const runtime = 'nodejs';
+
 type UserRow = RowDataPacket & {
   usr_id: number;
   usr_username: string;
