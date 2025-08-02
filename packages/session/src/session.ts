@@ -1,18 +1,62 @@
-import { type SessionOptions } from 'iron-session';
+import dbPool from "@db/client";
 
-export type UserSession = {
-  id: number;
-  email: string;
-  isLoggedIn: true;
-};
+import bcrypt from 'bcrypt';
 
-export const sessionOptions: SessionOptions = {
-  password: process.env.SESSION_SECRET as string,
-  cookieName: 'myapp_session',
-  cookieOptions: {
-    secure: process.env.NODE_ENV === 'production',
-    domain: process.env.COOKIE_DOMAIN,
-    path: '/',
-    sameSite: 'lax',
-  },
-};
+
+
+interface Session {
+  id: number; // internal auto-increment ID
+  sessionId: string; // secure public token prefix
+  secretHash: string;
+  createdAt: Date;
+}
+
+interface SessionWithToken extends Session {
+  token: string;
+}
+
+function generateSecureRandomString(): string {
+  const alphabet = "abcdefghijkmnpqrstuvwxyz23456789";
+  const bytes = new Uint8Array(24);
+  crypto.getRandomValues(bytes);
+  let id = "";
+  for (let i = 0; i < bytes.length; i++) {
+    id += alphabet[bytes[i] >> 3];
+  }
+  return id;
+}
+
+const SALT_ROUNDS = 12;
+
+async function hashSecret(secret: string): Promise<string> {
+  return await bcrypt.hash(secret, SALT_ROUNDS);
+}
+
+async function executeQuery(query: string, params: any[] = []) {
+  const [rows] = await dbPool.execute(query, params);
+  return rows;
+}
+
+export async function createSession(userId: number): Promise<SessionWithToken> {
+  const now = new Date();
+  const sessionId = generateSecureRandomString();
+  const secret = generateSecureRandomString();
+  const secretHash = await hashSecret(secret);
+
+  const token = `${sessionId}.${secret}`;
+
+  const result: any = await executeQuery(
+    "INSERT INTO mon_session (ses_session_id, ses_hash, ses_date_created, ses_ref_user) VALUES (?, ?, ?, ?)",
+    [sessionId, Buffer.from(secretHash), now.toISOString().slice(0, 19).replace('T', ' '), userId]
+  );
+
+  const ses_id = result.insertId;
+
+  return {
+    id: ses_id,
+    sessionId,
+    secretHash,
+    createdAt: now,
+    token,
+  };
+}
