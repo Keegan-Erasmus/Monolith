@@ -48,7 +48,7 @@ export default function Navbar({ username }: { username: string }) {
 
       <nav
         id="navbar"
-        className="navbar navbar-expand-md navbar-dark bg-dark px-4 shadow-sm py-2 fixed-top"
+        className="navbar navbar-expand-md navbar-dark bg-light px-4 shadow-sm py-2 fixed-top"
       >
         <a className="navbar-brand d-flex align-items-center" href="/big_timer">
           <span id="clock" className="text-white"></span>
