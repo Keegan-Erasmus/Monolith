@@ -7,7 +7,9 @@ export default async function NewConceptPage() {
 
   return (
     <div className="container mt-5 text-white">
-      <h1>Create New Concept</h1>
+      <div className="card bg-light border-gray">
+        <div className="card-body">
+      <h3>Create New Concept</h3>
       <form action="/api/concepts" method="POST">
         <div className="mb-3">
           <label className="form-label">Concept Name</label>
@@ -20,7 +22,6 @@ export default async function NewConceptPage() {
         <div className="mb-3">
           <label className="form-label">Book</label>
           <select name="book" className="form-select" required>
-            <option value="">Select a book</option>
             {(books as any[]).map((book) => (
               <option key={book.bks_id} value={book.bks_id}>
                 {book.bks_name}
@@ -42,7 +43,6 @@ export default async function NewConceptPage() {
         <div className="mb-3">
           <label className="form-label">Repetition Group</label>
           <select name="repetition" className="form-select">
-            <option value="">None</option>
             {(groups as any[]).map((group) => (
               <option key={group.rgs_id} value={group.rgs_id}>
                 {group.rgs_name}
@@ -52,10 +52,13 @@ export default async function NewConceptPage() {
         </div>
         <div className="mb-3">
             <label className="form-label">First Revision Date</label>
-            <input type="date" name="revision_date" className="form-control" />
+            <input type="date" name="revision_date" className="form-control" defaultValue={new Date(Date.now() + 86400000).toISOString().split('T')[0]}
+ />
         </div>
         <button type="submit" className="btn btn-primary">Save Concept</button>
       </form>
+      </div>
+      </div>
     </div>
   );
 }

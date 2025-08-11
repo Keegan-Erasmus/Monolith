@@ -3,8 +3,8 @@ import "@ui/styles/bootstrap/standard.scss";
 import Navbar from "@components/navbar";
 
 export const metadata: Metadata = {
-  title: "Synapse",
-  description: "Where memory begins",
+  title: "Sheets",
+  description: "Better than Excel",
 };
 
 export default function RootLayout({
@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="d-flex flex-column min-vh-100" data-bs-theme="brite">
         <Navbar username="test" />
-        <main className="flex-grow-1 container" style={{ paddingTop: '70px' }}>{children}</main>
+        <main className="flex-grow-1 container-fluid mt-4">{children}</main>
       </body>
     </html>
   );

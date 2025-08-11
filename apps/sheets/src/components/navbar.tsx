@@ -71,21 +71,6 @@ export default function Navbar({ username }: { username: string }) {
             <li className="nav-item">
               <a className="nav-link text-white" href="/home">Home</a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link text-white" href="/concepts">Concepts</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link text-white" href="/books">Books</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link text-white" href="/palaces">Palaces</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link text-white" href="/review">Review</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link text-white" href="/concepts/new">New</a>
-            </li>
           </ul>
 
           <div className="d-block d-md-none mt-3 text-center">
