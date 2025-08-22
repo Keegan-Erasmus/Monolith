@@ -23,6 +23,7 @@ export default function CollagePage() {
     <main className="bg-black min-vh-100 py-5 d-flex flex-column align-items-center">
       <div className="position-center text-center d-inline-block">
         <a href="/keegan-erasmus">back</a>
+        <br></br>
         <Image
           src={photos[current]}
           alt={`Collage ${current}`}

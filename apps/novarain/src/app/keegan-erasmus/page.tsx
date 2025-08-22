@@ -68,7 +68,7 @@ export default function Page() {
         <section id="work" ></section>
         <h1 className="display-1 fw-bold mb-3">Keegan Erasmus</h1>
         <p className="lead mb-4">Most people don't know what they want to be, <b>I do:</b></p>
-        <p className="lead mb-4"><b>&#60;Studying Enthusiast, Fullstack Developer, Lifelong Learner&#62;</b></p>
+        <p className="lead mb-4"><b>&#60;Studying Enthusiast, Fullstack Developer, Database Administrator, Lifelong Learner&#62;</b></p>
       </section>
 
       {/* Work Section */}
@@ -88,7 +88,7 @@ export default function Page() {
           <div className="col-md-6 col-lg-4">
             <div className="card bg-light text-white shadow-sm h-100">
               <div className="card-body">
-                <h5 className="h5">LiquidEdge</h5>
+                <h5 className="h5">Liquid Edge Solutions</h5>
                 <p className="text-muted">Project Planning / DBA / Documentation / UI Engineer</p>
                 <p className="text-muted">In the span of 6 months Scoped, planned and built and entire sales order to invoice system with integration into OMNI Accounts for 2 large clients.</p>
                 <a href="/pt-scales" className="">Read More</a>
@@ -109,7 +109,7 @@ export default function Page() {
             <div className="card bg-light text-white shadow-sm h-100">
               <div className="card-body">
                 <h3 className="h5">PT Scales</h3>
-                <p className="text-muted">Role / Description</p>
+                <p className="text-muted">Field Service Technitian | Temporary Director</p>
                 <p className="text-muted">I worked at PT Scales as a Field Service Technitian where i built and maintained industrial packaging machines.</p>
                 <a href="/pt-scales" className="">Read More</a>
               </div>
@@ -124,11 +124,26 @@ export default function Page() {
         <div className="row g-4">
           <div className="col-md-6">
             <div className="card bg-light text-white shadow-sm h-100 p-3">
-              <h5 className="h5">University Name</h5>
-              <p className="text-muted">Degree | Period</p>
+              <h5 className="h5">Cape Peninsula Univeristy of Technology</h5>
+              <p className="text-muted">Degree | 8 months - Cancelled</p>
               <ul className="list-unstyled mt-2">
-                <li>Specialization / Honors</li>
-                <li>Project Grade / Notes</li>
+                <li>Mathematics & Statistics</li>
+                <li>Semester 1 Grade:<b> 81% - Pass with distinction</b></li>
+                <li>Unfortunatly a family emergency occured, unable to continue as I had to step in as Director at PT Scales for 4 months</li> 
+              </ul>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="card bg-light text-white shadow-sm h-100 p-3">
+              <h5 className="h5">Cape Town flight training centre</h5>
+              <p className="text-muted">Private Pilots Licence | Student Pilot License | 2 years - ongoing </p>
+              <ul className="list-unstyled mt-2">
+                <li>Student Pilots License</li>
+                <li>Grade:<b> 76%</b></li>
+              </ul>
+              <ul className="list-unstyled mt-2">
+                <li>Private Pilots License </li>
+                <li>Grade:<b> In progress</b></li>
               </ul>
             </div>
           </div>
@@ -141,9 +156,8 @@ export default function Page() {
         <div className="row g-4">
           <div className="col-md-6 col-lg-4">
             <div className="card bg-light text-white shadow-sm h-100">
-              <img src="/path/to/project-screenshot.png" className="card-img-top" alt="Project" />
               <div className="card-body">
-                <h5 className="h5">Project Name</h5>
+                <h5 className="h5">Leadnet</h5>
                 <p className="text-muted">Short description or tech stack</p>
               </div>
             </div>
